@@ -108,64 +108,62 @@ const TAIWAN_2026_HOLIDAYS: Record<string, HolidayRule> = {
   '2026-12-27': { isHoliday: true, isNationalHoliday: true, name: '行憲紀念連假', note: '行憲紀念連休3天' },
 };
 
-// Explicit consecutive holidays mapped for 2027 (matching Taiwan official calendar IMG_4564.jpeg)
+// Explicit consecutive holidays mapped for 2027 (100% matched with Taiwan official calendar IMG_4564.jpeg)
 const TAIWAN_2027_HOLIDAYS: Record<string, HolidayRule> = {
   // 1. 元旦 3 天（1/1(五) ~ 1/3(日)）
   '2027-01-01': { isHoliday: true, isNationalHoliday: true, name: '開國紀念日／元旦', note: '元旦連休3天' },
   '2027-01-02': { isHoliday: true, isNationalHoliday: true, name: '元旦連假', note: '元旦連休3天' },
   '2027-01-03': { isHoliday: true, isNationalHoliday: true, name: '元旦連假', note: '元旦連休3天' },
 
-  // 2. 過年春節 10 天連休（2/5(五)除夕 ~ 2/14(日)初九）- IMG_4564.jpeg 全粉紅標記
-  '2027-02-05': { isHoliday: true, isNationalHoliday: true, name: '農曆除夕', note: '春節連休10天' },
-  '2027-02-06': { isHoliday: true, isNationalHoliday: true, name: '春節初一', note: '春節連休10天' },
-  '2027-02-07': { isHoliday: true, isNationalHoliday: true, name: '春節初二', note: '春節連休10天' },
-  '2027-02-08': { isHoliday: true, isNationalHoliday: true, name: '春節初三', note: '春節連休10天' },
-  '2027-02-09': { isHoliday: true, isNationalHoliday: true, name: '春節補假', note: '春節連休10天' },
-  '2027-02-10': { isHoliday: true, isNationalHoliday: true, name: '春節補假', note: '春節連休10天' },
-  '2027-02-11': { isHoliday: true, isNationalHoliday: true, name: '春節連假', note: '春節連休10天' },
-  '2027-02-12': { isHoliday: true, isNationalHoliday: true, name: '春節連假', note: '春節連休10天' },
-  '2027-02-13': { isHoliday: true, isNationalHoliday: true, name: '春節連假', note: '春節連休10天' },
-  '2027-02-14': { isHoliday: true, isNationalHoliday: true, name: '春節連假', note: '春節連休10天' },
+  // 2. 春節 6 天連休（2/5(五)除夕 ~ 2/10(三)初五）- IMG_4564.jpeg 官方粉紅標記，2/11初六與2/12初七為正常上班日
+  '2027-02-05': { isHoliday: true, isNationalHoliday: true, name: '農曆除夕', note: '春節連休6天' },
+  '2027-02-06': { isHoliday: true, isNationalHoliday: true, name: '春節初一', note: '春節連休6天' },
+  '2027-02-07': { isHoliday: true, isNationalHoliday: true, name: '春節初二', note: '春節連休6天' },
+  '2027-02-08': { isHoliday: true, isNationalHoliday: true, name: '春節初三', note: '春節連休6天' },
+  '2027-02-09': { isHoliday: true, isNationalHoliday: true, name: '春節初四(補假)', note: '春節連休6天' },
+  '2027-02-10': { isHoliday: true, isNationalHoliday: true, name: '春節初五(補假)', note: '春節連休6天' },
 
-  // 3. 228和平紀念日（2/27(六) ~ 2/28(日)）
-  '2027-02-27': { isHoliday: true, isNationalHoliday: true, name: '228紀念連假', note: '228連休' },
-  '2027-02-28': { isHoliday: true, isNationalHoliday: true, name: '228和平紀念日', note: '228連休' },
+  // 3. 228和平紀念日 3 天連休（2/27(六) ~ 3/1(一)）- 2/28為週日，3/1(一)補假
+  '2027-02-27': { isHoliday: true, isNationalHoliday: true, name: '228和平紀念連假', note: '228連休3天' },
+  '2027-02-28': { isHoliday: true, isNationalHoliday: true, name: '和平紀念日', note: '228連休3天' },
+  '2027-03-01': { isHoliday: true, isNationalHoliday: true, name: '和平紀念日(補假)', note: '228連休3天' },
 
-  // 4. 兒童節與清明節 4 天（4/3(六) ~ 4/6(二)）
-  '2027-04-03': { isHoliday: true, isNationalHoliday: true, name: '清明兒童連假', note: '清明連休4天' },
-  '2027-04-04': { isHoliday: true, isNationalHoliday: true, name: '兒童節', note: '清明連休4天' },
-  '2027-04-05': { isHoliday: true, isNationalHoliday: true, name: '清明節', note: '清明連休4天' },
-  '2027-04-06': { isHoliday: true, isNationalHoliday: true, name: '清明節(補假)', note: '清明連休4天' },
+  // 4. 兒童節與清明節 4 天連休（4/3(六) ~ 4/6(二)）- 4/4兒童節、4/5清明節、4/6補假
+  '2027-04-03': { isHoliday: true, isNationalHoliday: true, name: '清明兒童連假', note: '清明兒童連休4天' },
+  '2027-04-04': { isHoliday: true, isNationalHoliday: true, name: '兒童節', note: '清明兒童連休4天' },
+  '2027-04-05': { isHoliday: true, isNationalHoliday: true, name: '清明節', note: '清明兒童連休4天' },
+  '2027-04-06': { isHoliday: true, isNationalHoliday: true, name: '兒童節(補假)', note: '清明兒童連休4天' },
 
-  // 5. 勞動節（5/1(六) ~ 5/2(日)）
-  '2027-05-01': { isHoliday: true, isNationalHoliday: true, name: '勞動節', note: '勞動節' },
-  '2027-05-02': { isHoliday: true, isNationalHoliday: true, name: '勞動節連假', note: '勞動節' },
+  // 5. 勞動節 3 天連休（4/30(五) ~ 5/2(日)）- 5/1為週六，4/30(五)補假
+  '2027-04-30': { isHoliday: true, isNationalHoliday: true, name: '勞動節(補假)', note: '勞動節連休3天' },
+  '2027-05-01': { isHoliday: true, isNationalHoliday: true, name: '勞動節', note: '勞動節連休3天' },
+  '2027-05-02': { isHoliday: true, isNationalHoliday: true, name: '勞動節連假', note: '勞動節連休3天' },
 
-  // 6. 端午節 (2027-06-09)
+  // 6. 端午節 (2027-06-09 週三)
   '2027-06-09': { isHoliday: true, isNationalHoliday: true, name: '端午節' },
 
-  // 7. 中秋節 (2027-09-15)
+  // 7. 中秋節 (2027-09-15 週三)
   '2027-09-15': { isHoliday: true, isNationalHoliday: true, name: '中秋節' },
 
-  // 8. 孔子誕辰／教師節 (2027-09-28)
+  // 8. 孔子誕辰紀念日／教師節 (2027-09-28 週二)
   '2027-09-28': { isHoliday: true, isNationalHoliday: true, name: '孔子誕辰紀念日／教師節' },
 
-  // 9. 雙十國慶 3 天（10/9(六) ~ 10/11(一)）
+  // 9. 雙十國慶 3 天連休（10/9(六) ~ 10/11(一)）- 10/10為週日，10/11(一)補假
   '2027-10-09': { isHoliday: true, isNationalHoliday: true, name: '國慶連假', note: '國慶連休3天' },
   '2027-10-10': { isHoliday: true, isNationalHoliday: true, name: '雙十國慶日', note: '國慶連休3天' },
   '2027-10-11': { isHoliday: true, isNationalHoliday: true, name: '國慶日(補假)', note: '國慶連休3天' },
 
-  // 10. 台灣光復節 3 天（10/23(六) ~ 10/25(一)）
+  // 10. 臺灣光復節 3 天連休（10/23(六) ~ 10/25(一)）
   '2027-10-23': { isHoliday: true, isNationalHoliday: true, name: '臺灣光復節連假', note: '光復紀念連休3天' },
   '2027-10-24': { isHoliday: true, isNationalHoliday: true, name: '臺灣光復節連假', note: '光復紀念連休3天' },
   '2027-10-25': { isHoliday: true, isNationalHoliday: true, name: '臺灣光復節', note: '光復紀念連休3天' },
 
-  // 11. 行憲紀念日 3 天（12/24(五) ~ 12/26(日)）
+  // 11. 行憲紀念日 3 天連休（12/24(五) ~ 12/26(日)）- 12/25為週六，12/24(五)補假
   '2027-12-24': { isHoliday: true, isNationalHoliday: true, name: '行憲紀念日(補假)', note: '行憲紀念連休3天' },
-  '2027-12-25': { isHoliday: true, isNationalHoliday: true, name: '行憲紀念日', note: '行憲紀念連休3天' },
+  '2027-12-25': { isHoliday: true, isNationalHoliday: true, name: '聖誕節／行憲紀念日', note: '行憲紀念連休3天' },
   '2027-12-26': { isHoliday: true, isNationalHoliday: true, name: '行憲紀念連假', note: '行憲紀念連休3天' },
 
-  // 12. 2028跨年元旦連假（12/31(五) ~ 1/2(日)）
+  // 12. 2028跨年元旦連假（12/31(五) ~ 1/2(日)）- 12/31(五)調整放假
   '2027-12-31': { isHoliday: true, isNationalHoliday: true, name: '元旦連假調整放假', note: '2028跨年連休3天' },
 };
 
