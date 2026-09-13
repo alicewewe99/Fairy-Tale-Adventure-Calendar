@@ -120,8 +120,27 @@ export interface LoveAnswer {
 
 // YES/NO Oracle
 export interface YesNoOracle {
+  id: number;
   answer: 'YES' | 'NO' | 'NOT_YET' | 'MAYBE';
   answerZh: string;
   detailAdvice: string;
   loveAffirmation: string;
+  signSymbol: string;
+}
+
+// Moonology Oracle Cards (月相神諭卡 44張：連接古老的月亮智慧，開創屬於你的夢想和未來)
+export type MoonologyCategory = '月相牌' | '新月牌' | '滿月牌' | '特別月牌';
+
+export interface MoonologyCard {
+  id: number;
+  name: string; // 新月, 新月在牡羊座, 滿月在金牛座, 超級月亮...
+  nameEn: string;
+  category: MoonologyCategory;
+  phaseIcon: string;
+  astrologySign?: string;
+  element?: '火象' | '土象' | '風象' | '水象' | '宇宙靈性';
+  coreMessage: string; // 核心神諭訊息
+  attunement: string; // 月亮調準肯定語 (Attunement)
+  wisdom: string; // 古老的月亮智慧解讀
+  actionForFuture: string; // 開創屬於你的夢想與未來
 }

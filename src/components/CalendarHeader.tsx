@@ -104,7 +104,7 @@ export const CalendarHeader: React.FC<CalendarHeaderProps> = ({
               id="btn-open-oracles"
               onClick={onOpenDivinationModal}
               className="inline-flex items-center gap-1.5 px-3 py-2 text-xs sm:text-sm font-semibold rounded-xl bg-gradient-to-r from-purple-500 to-indigo-600 text-white shadow-xs hover:from-purple-600 hover:to-indigo-700 active:scale-95 transition-all"
-              title="神明靈籤與指引：彩虹卡、東港鎮海宮靈籤、浪漫天使卡、台灣好神卡、愛的解答之書"
+              title="神明靈籤與指引：彩虹卡、東港鎮海宮靈籤、浪漫天使卡、台灣好神卡、月相神諭卡、愛的解答之書、YES/NO占卜"
             >
               <Sparkles className="w-4 h-4 text-amber-300 animate-pulse" />
               <span>靈籤神諭</span>
