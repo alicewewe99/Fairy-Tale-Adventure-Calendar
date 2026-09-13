@@ -1,0 +1,132 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <radialGradient id="bgGrad" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#f0f9ff" />
+      <stop offset="60%" stop-color="#e0f2fe" />
+      <stop offset="100%" stop-color="#bae6fd" />
+    </radialGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fef08a" />
+      <stop offset="50%" stop-color="#f59e0b" />
+      <stop offset="100%" stop-color="#d97706" />
+    </linearGradient>
+    <linearGradient id="aliceBlue" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#7dd3fc" />
+      <stop offset="100%" stop-color="#0284c7" />
+    </linearGradient>
+    <linearGradient id="roseRibbon" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fda4af" />
+      <stop offset="100%" stop-color="#e11d48" />
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#0369a1" flood-opacity="0.25" />
+    </filter>
+  </defs>
+
+  <!-- Background Circle / Squircle -->
+  <rect width="512" height="512" rx="128" fill="url(#bgGrad)" />
+
+  <!-- Fairytale Playing Card Diamonds & Stars -->
+  <g opacity="0.45">
+    <path d="M 60 90 L 75 110 L 60 130 L 45 110 Z" fill="#f43f5e" />
+    <path d="M 440 100 L 455 120 L 440 140 L 425 120 Z" fill="#0284c7" />
+    <path d="M 80 410 L 95 430 L 80 450 L 65 430 Z" fill="#0284c7" />
+    <path d="M 430 400 L 445 420 L 430 440 L 415 420 Z" fill="#f43f5e" />
+    <!-- Clock ring background -->
+    <circle cx="256" cy="256" r="210" fill="none" stroke="#38bdf8" stroke-width="2.5" stroke-dasharray="8 8" opacity="0.6" />
+  </g>
+
+  <!-- Giant Pocket Watch Chain & Ring Behind Panda -->
+  <circle cx="256" cy="270" r="175" fill="#ffffff" filter="url(#shadow)" opacity="0.95" />
+  <circle cx="256" cy="270" r="165" fill="#fdfbf7" stroke="#fbbf24" stroke-width="4" />
+
+  <!-- Panda Ears -->
+  <circle cx="170" cy="155" r="50" fill="#1e293b" />
+  <circle cx="170" cy="155" r="28" fill="#334155" />
+  <circle cx="342" cy="155" r="50" fill="#1e293b" />
+  <circle cx="342" cy="155" r="28" fill="#334155" />
+
+  <!-- Alice Big Blue Head Bow -->
+  <path d="M 256 125 C 220 90, 150 95, 180 145 C 205 150, 240 140, 256 148 C 272 140, 307 150, 332 145 C 362 95, 292 90, 256 125 Z" fill="url(#aliceBlue)" />
+  <circle cx="256" cy="136" r="16" fill="url(#goldGrad)" stroke="#b45309" stroke-width="2" />
+
+  <!-- Panda Head -->
+  <ellipse cx="256" cy="245" rx="120" ry="105" fill="#ffffff" stroke="#e2e8f0" stroke-width="3" />
+
+  <!-- Panda Eye Patches (Angled Cute Alice Look) -->
+  <ellipse cx="205" cy="235" rx="34" ry="40" fill="#1e293b" transform="rotate(-15 205 235)" />
+  <ellipse cx="307" cy="235" rx="34" ry="40" fill="#1e293b" transform="rotate(15 307 235)" />
+
+  <!-- Big Sparkling Eyes -->
+  <ellipse cx="208" cy="235" rx="18" ry="22" fill="#0f172a" />
+  <ellipse cx="304" cy="235" rx="18" ry="22" fill="#0f172a" />
+  <!-- Highlights -->
+  <circle cx="214" cy="226" r="8" fill="#ffffff" />
+  <circle cx="203" cy="242" r="3.5" fill="#ffffff" />
+  <circle cx="310" cy="226" r="8" fill="#ffffff" />
+  <circle cx="299" cy="242" r="3.5" fill="#ffffff" />
+
+  <!-- Panda Nose & Cute Smiling Mouth -->
+  <ellipse cx="256" cy="265" rx="16" ry="11" fill="#1e293b" />
+  <path d="M 256 276 L 256 284 M 240 285 C 248 296, 256 295, 256 284 C 256 295, 264 296, 272 285" fill="none" stroke="#1e293b" stroke-width="4.5" stroke-linecap="round" />
+  <!-- Rosy Cheeks -->
+  <ellipse cx="175" cy="275" rx="20" ry="12" fill="#fda4af" opacity="0.65" />
+  <ellipse cx="337" cy="275" rx="20" ry="12" fill="#fda4af" opacity="0.65" />
+
+  <!-- Alice Blue Collar & White Lace Frill -->
+  <path d="M 200 330 Q 256 365 312 330 L 335 410 Q 256 430 177 410 Z" fill="url(#aliceBlue)" />
+  <!-- White Apron -->
+  <path d="M 220 338 Q 256 360 292 338 L 305 405 Q 256 418 207 405 Z" fill="#ffffff" stroke="#e0e7ff" stroke-width="2" />
+  <path d="M 256 348 L 256 385" stroke="#f43f5e" stroke-width="2" stroke-dasharray="3 3" />
+
+  <!-- Panda Paws holding the Magical Calendar -->
+  <!-- Left Paw -->
+  <ellipse cx="165" cy="365" rx="28" ry="24" fill="#1e293b" transform="rotate(20 165 365)" />
+  <circle cx="165" cy="365" r="10" fill="#475569" opacity="0.4" />
+  <!-- Right Paw -->
+  <ellipse cx="347" cy="365" rx="28" ry="24" fill="#1e293b" transform="rotate(-20 347 365)" />
+  <circle cx="347" cy="365" r="10" fill="#475569" opacity="0.4" />
+
+  <!-- Magical Calendar Book (Held in front) -->
+  <g transform="translate(180, 315) rotate(-2)">
+    <!-- Calendar Outer Cover -->
+    <rect x="0" y="0" width="155" height="135" rx="14" fill="#ffffff" stroke="#fbbf24" stroke-width="4" filter="url(#shadow)" />
+    <!-- Top Spiral / Header Red Bar -->
+    <rect x="0" y="0" width="155" height="34" rx="12" fill="url(#roseRibbon)" />
+    <!-- Calendar Rings -->
+    <circle cx="28" cy="8" r="5" fill="#f8fafc" stroke="#475569" stroke-width="2" />
+    <circle cx="77" cy="8" r="5" fill="#f8fafc" stroke="#475569" stroke-width="2" />
+    <circle cx="127" cy="8" r="5" fill="#f8fafc" stroke="#475569" stroke-width="2" />
+    <!-- Calendar Month Text -->
+    <text x="77" y="24" font-size="14" font-weight="900" font-family="system-ui, sans-serif" fill="#ffffff" text-anchor="middle" letter-spacing="1">WONDERLAND</text>
+
+    <!-- Calendar Date Number & Magic Sparkles -->
+    <text x="77" y="80" font-size="44" font-weight="900" font-family="system-ui, sans-serif" fill="#0284c7" text-anchor="middle">2026</text>
+    <text x="77" y="105" font-size="13" font-weight="bold" font-family="system-ui, sans-serif" fill="#e11d48" text-anchor="middle">愛麗絲童話月曆</text>
+
+    <!-- Tiny Magic Star on Calendar -->
+    <path d="M 128 58 L 132 68 L 142 70 L 134 78 L 136 88 L 128 82 L 120 88 L 122 78 L 114 70 L 124 68 Z" fill="url(#goldGrad)" />
+  </g>
+
+  <!-- Whimsical Wonderland Elements Floating -->
+  <!-- Top Right Little White Rabbit Pocket Watch -->
+  <g transform="translate(370, 75)">
+    <circle cx="28" cy="28" r="26" fill="#fef08a" stroke="#d97706" stroke-width="3" />
+    <circle cx="28" cy="28" r="22" fill="#fffbeb" />
+    <path d="M 28 28 L 28 14 M 28 28 L 38 28" stroke="#78350f" stroke-width="3" stroke-linecap="round" />
+    <circle cx="28" cy="2" r="6" fill="none" stroke="#d97706" stroke-width="3" />
+  </g>
+
+  <!-- Top Left Flying Teacup -->
+  <g transform="translate(60, 160) rotate(-18)">
+    <path d="M 10 20 C 10 40 40 40 40 20 Z" fill="#ffffff" stroke="#0284c7" stroke-width="3" />
+    <path d="M 38 22 C 48 22 48 34 38 34" fill="none" stroke="#0284c7" stroke-width="3" stroke-linecap="round" />
+    <!-- Steam -->
+    <path d="M 20 14 Q 24 8 20 2 M 30 14 Q 34 8 30 2" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" opacity="0.7" />
+  </g>
+
+  <!-- Magic Sparkles -->
+  <polygon points="120,80 123,90 133,93 123,96 120,106 117,96 107,93 117,90" fill="#fbbf24" />
+  <polygon points="410,230 412,238 420,240 412,242 410,250 408,242 400,240 408,238" fill="#fbbf24" />
+  <polygon points="90,320 92,328 100,330 92,332 90,340 88,332 80,330 88,328" fill="#f43f5e" />
+</svg>
