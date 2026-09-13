@@ -2,6 +2,7 @@ import React from 'react';
 import {
   ChevronLeft,
   ChevronRight,
+  ChevronDown,
   RotateCcw,
   Copy,
   Check,
@@ -81,9 +82,8 @@ export const CalendarHeader: React.FC<CalendarHeaderProps> = ({
             <div>
               <div className="flex items-center gap-2">
                 <h1 className="text-xl sm:text-2xl font-black tracking-tight text-slate-800 flex items-center gap-1.5">
-                  <span className="text-sky-600">愛麗絲</span>
-                  <span className="text-pink-600">貓熊</span>
-                  <span className="text-slate-800">每月月曆</span>
+                  <span className="text-sky-600">花栗鼠與貓熊</span>
+                  <span className="text-pink-600">魔法月曆</span>
                 </h1>
                 <span className="bg-pink-100 text-pink-700 text-xs px-2 py-0.5 rounded-full font-medium hidden sm:inline-block border border-pink-200">
                   台灣國定假・農曆24節氣
@@ -92,7 +92,7 @@ export const CalendarHeader: React.FC<CalendarHeaderProps> = ({
               <p className="text-xs text-slate-600 mt-0.5 flex items-center gap-1.5">
                 <span>{todayDayObject.ganzhiYear}年 【{todayDayObject.zodiac}年】</span>
                 <span className="text-pink-400">•</span>
-                <span>童話手繪風・PWA桌面App</span>
+                <span>花栗鼠與貓熊・PWA桌面App</span>
               </p>
             </div>
           </div>
@@ -181,89 +181,88 @@ export const CalendarHeader: React.FC<CalendarHeaderProps> = ({
           </div>
         </div>
 
-        {/* Large Navigation Bar (Prev / Year Select / Month Select / Next / Jump to Today) - Strictly in the SAME ROW (flex-nowrap) */}
-        <div className="mt-3 flex flex-nowrap items-center justify-between gap-1 sm:gap-3 w-full">
-          {/* Large, touch-friendly Prev Month Button */}
-          <button
-            id="btn-prev-month"
-            onClick={onPrevMonth}
-            className="flex items-center justify-center gap-0.5 sm:gap-1.5 shrink-0 px-2.5 sm:px-4 h-11 sm:h-13 rounded-xl sm:rounded-2xl bg-white border-2 border-sky-300 text-sky-700 hover:bg-sky-50 active:bg-sky-100 active:scale-95 shadow-xs transition-all cursor-pointer font-bold text-xs sm:text-base select-none whitespace-nowrap"
-            aria-label="上個月"
-            title="上個月（放大好點選）"
-          >
-            <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 stroke-[2.5]" />
-            <span>上個月</span>
-          </button>
+        {/* Navigation Bar: 月 年 上月 下月 排列完整 一個列 不被遮擋 */}
+        <div className="mt-3 bg-white/95 backdrop-blur-xs p-2 sm:p-2.5 rounded-2xl border-2 border-pink-200/90 shadow-sm w-full">
+          <div className="flex flex-nowrap items-center justify-between sm:justify-center gap-1 sm:gap-3 w-full">
+            {/* 上個月 Button */}
+            <button
+              id="btn-prev-month"
+              onClick={onPrevMonth}
+              className="flex items-center justify-center gap-0.5 sm:gap-1.5 shrink-0 px-2 sm:px-3.5 py-2 sm:py-2.5 rounded-xl bg-white border-2 border-sky-300 text-sky-700 hover:bg-sky-50 active:bg-sky-100 active:scale-95 shadow-2xs transition-all cursor-pointer font-bold text-xs sm:text-sm select-none whitespace-nowrap"
+              aria-label="上個月"
+              title="切換至上個月"
+            >
+              <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 stroke-[2.5]" />
+              <span className="hidden sm:inline">上個月</span>
+              <span className="inline sm:hidden">上月</span>
+            </button>
 
-          {/* Center cluster: Year and Month Selectors & Jump to Today */}
-          <div className="flex items-center justify-center gap-1 sm:gap-2.5 shrink min-w-0">
-            {/* Year Selector (2026 - 2033) */}
-            <div className="relative">
+            {/* Year Dropdown (年份選擇) */}
+            <div className="relative shrink-0">
               <select
                 id="select-year"
                 value={currentYear}
                 onChange={(e) => onYearChange(Number(e.target.value))}
-                className="appearance-none bg-white text-slate-900 border-2 border-pink-300 rounded-lg sm:rounded-xl px-2 sm:px-3.5 py-1.5 sm:py-2.5 pr-6 sm:pr-8 text-xs sm:text-base font-black shadow-xs focus:outline-hidden focus:ring-2 focus:ring-pink-400 cursor-pointer text-center"
+                className="appearance-none bg-white text-slate-900 border-2 border-pink-300 hover:border-pink-400 rounded-xl pl-2.5 sm:pl-3.5 pr-7 sm:pr-8 py-2 sm:py-2.5 text-xs sm:text-sm font-black shadow-2xs focus:outline-hidden focus:ring-2 focus:ring-pink-400 cursor-pointer text-center whitespace-nowrap min-w-[80px] sm:min-w-[96px]"
+                aria-label="選擇年份"
               >
                 {YEAR_OPTIONS.map((y) => (
                   <option key={y} value={y}>
-                    {y}年
+                    {y} 年
                   </option>
                 ))}
               </select>
-              <div className="pointer-events-none absolute right-1.5 sm:right-2 top-1/2 -translate-y-1/2 text-pink-500 font-bold text-[10px] sm:text-xs">
-                ▼
-              </div>
+              <ChevronDown className="pointer-events-none absolute right-1.5 sm:right-2 top-1/2 -translate-y-1/2 w-4 h-4 text-pink-500 stroke-[2.5]" />
             </div>
 
-            {/* Month Selector */}
-            <div className="relative">
+            {/* Month Dropdown (月份選擇) */}
+            <div className="relative shrink-0">
               <select
                 id="select-month"
                 value={currentMonth}
                 onChange={(e) => onMonthChange(Number(e.target.value))}
-                className="appearance-none bg-white text-slate-900 border-2 border-sky-300 rounded-lg sm:rounded-xl px-2 sm:px-3.5 py-1.5 sm:py-2.5 pr-6 sm:pr-8 text-xs sm:text-base font-black shadow-xs focus:outline-hidden focus:ring-2 focus:ring-sky-400 cursor-pointer text-center"
+                className="appearance-none bg-white text-slate-900 border-2 border-sky-300 hover:border-sky-400 rounded-xl pl-2.5 sm:pl-3.5 pr-7 sm:pr-8 py-2 sm:py-2.5 text-xs sm:text-sm font-black shadow-2xs focus:outline-hidden focus:ring-2 focus:ring-sky-400 cursor-pointer text-center whitespace-nowrap min-w-[70px] sm:min-w-[84px]"
+                aria-label="選擇月份"
               >
-                {MONTH_NAMES.map((name, idx) => (
-                  <option key={idx + 1} value={idx + 1}>
-                    {name}
+                {Array.from({ length: 12 }, (_, i) => i + 1).map((m) => (
+                  <option key={m} value={m}>
+                    {m} 月
                   </option>
                 ))}
               </select>
-              <div className="pointer-events-none absolute right-1.5 sm:right-2 top-1/2 -translate-y-1/2 text-sky-500 font-bold text-[10px] sm:text-xs">
-                ▼
-              </div>
+              <ChevronDown className="pointer-events-none absolute right-1.5 sm:right-2 top-1/2 -translate-y-1/2 w-4 h-4 text-sky-500 stroke-[2.5]" />
             </div>
 
-            {/* "回到今天" Button */}
+            {/* 下個月 Button */}
+            <button
+              id="btn-next-month"
+              onClick={onNextMonth}
+              className="flex items-center justify-center gap-0.5 sm:gap-1.5 shrink-0 px-2 sm:px-3.5 py-2 sm:py-2.5 rounded-xl bg-white border-2 border-sky-300 text-sky-700 hover:bg-sky-50 active:bg-sky-100 active:scale-95 shadow-2xs transition-all cursor-pointer font-bold text-xs sm:text-sm select-none whitespace-nowrap"
+              aria-label="下個月"
+              title="切換至下個月"
+            >
+              <span className="hidden sm:inline">下個月</span>
+              <span className="inline sm:hidden">下月</span>
+              <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 stroke-[2.5]" />
+            </button>
+
+            {/* 回到今天 Button */}
             <button
               id="btn-jump-today"
               onClick={onJumpToToday}
               disabled={isCurrentYearMonthToday}
-              className={`flex items-center justify-center gap-1 shrink-0 h-9 sm:h-11 px-2 sm:px-3 rounded-lg sm:rounded-xl text-xs sm:text-sm font-bold border transition-all select-none whitespace-nowrap ${
+              className={`flex items-center justify-center gap-1 shrink-0 px-2.5 sm:px-3.5 py-2 sm:py-2.5 rounded-xl text-xs sm:text-sm font-bold border transition-all select-none whitespace-nowrap ${
                 isCurrentYearMonthToday
-                  ? 'bg-amber-100 text-amber-800 border-amber-300 cursor-default opacity-90'
-                  : 'bg-amber-400 text-amber-950 border-amber-500 hover:bg-amber-500 active:scale-95 cursor-pointer shadow-xs'
+                  ? 'bg-amber-100 text-amber-800 border-amber-300 cursor-default opacity-85'
+                  : 'bg-amber-400 text-amber-950 border-amber-500 hover:bg-amber-500 active:scale-95 cursor-pointer shadow-2xs'
               }`}
-              title="回到今天 (當天日期月份)"
+              title="回到今天"
             >
               <RotateCcw className="w-3.5 h-3.5 sm:w-4 sm:h-4 stroke-[2.2]" />
               <span className="hidden sm:inline">回到今天</span>
               <span className="inline sm:hidden">今天</span>
             </button>
           </div>
-
-          {/* Large, touch-friendly Next Month Button */}
-          <button
-            id="btn-next-month"
-            onClick={onNextMonth}
-            className="flex items-center justify-center gap-0.5 sm:gap-1.5 shrink-0 px-2.5 sm:px-4 h-11 sm:h-13 rounded-xl sm:rounded-2xl bg-white border-2 border-sky-300 text-sky-700 hover:bg-sky-50 active:bg-sky-100 active:scale-95 shadow-xs transition-all cursor-pointer font-bold text-xs sm:text-base select-none whitespace-nowrap"
-            aria-label="下個月"
-            title="下個月（放大好點選）"
-          >
-            <span>下個月</span>
-            <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 stroke-[2.5]" />
-          </button>
         </div>
       </div>
     </header>

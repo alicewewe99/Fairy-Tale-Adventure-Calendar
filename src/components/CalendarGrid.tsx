@@ -55,12 +55,12 @@ export const CalendarGrid: React.FC<CalendarGridProps> = ({
                 key={`${day.dateString}-${idx}`}
                 id={`cal-cell-${day.dateString}`}
                 onClick={() => onSelectDay(day)}
-                className={`group relative flex flex-col justify-between p-1 sm:p-2.5 transition-all cursor-pointer select-none min-h-[92px] sm:min-h-[118px] max-h-[125px] overflow-hidden ${
+                className={`group relative flex flex-col justify-between p-1 sm:p-2 transition-all cursor-pointer select-none min-h-[105px] sm:min-h-[128px] ${
                   // Month focus vs Dimmed
                   !isCurrentMonth
                     ? 'bg-slate-100/60 opacity-55 text-slate-400'
                     : isHolidayCell
-                    ? 'bg-rose-50/90 hover:bg-rose-100/90' // 休假日粉紅色底色
+                    ? 'bg-rose-50/95 hover:bg-rose-100/95' // 休假日粉紅色底色
                     : 'bg-white hover:bg-sky-50/70'
                 } ${
                   // Today highlight with Alice magic border
@@ -70,89 +70,97 @@ export const CalendarGrid: React.FC<CalendarGridProps> = ({
                 } ${
                   isSelected ? 'ring-2 ring-sky-500 ring-inset z-10' : ''
                 }`}
-                title={`${day.dateString} ${day.lunarFullText}`}
+                title={`${day.dateString} ${day.lunarFullText} ${day.holidayName ? `• ${day.holidayName}` : ''}`}
               >
-                {/* Top Row: Date Number & Holiday/National Badge */}
-                <div className="flex items-start justify-between gap-1">
-                  {/* Solar Date Number */}
-                  <div className="flex items-center gap-1">
-                    <span
-                      className={`text-base sm:text-xl leading-none font-black ${
-                        !isCurrentMonth
-                          ? 'text-slate-400'
-                          : isHolidayCell
-                          ? 'text-rose-600 font-black' // 休假日紅色字體明顯標註
-                          : isToday
-                          ? 'text-sky-700 font-black'
-                          : 'text-slate-800'
-                      }`}
-                    >
-                      {day.day}
-                    </span>
-
-                    {/* Today Badge */}
-                    {isToday && (
-                      <span className="bg-amber-400 text-amber-950 text-[10px] font-extrabold px-1 py-0.2 rounded-md shadow-xs flex items-center gap-0.5">
-                        <Star className="w-2.5 h-2.5 fill-amber-950" />
-                        <span className="hidden sm:inline">今日</span>
+                {/* Top Section: Date Number, Today Badge & National Tag */}
+                <div>
+                  <div className="flex items-start justify-between gap-1">
+                    {/* Solar Date Number */}
+                    <div className="flex items-center gap-1">
+                      <span
+                        className={`text-base sm:text-xl leading-none font-black ${
+                          !isCurrentMonth
+                            ? 'text-slate-400'
+                            : isHolidayCell
+                            ? 'text-rose-600 font-black'
+                            : isToday
+                            ? 'text-sky-700 font-black'
+                            : 'text-slate-800'
+                        }`}
+                      >
+                        {day.day}
                       </span>
-                    )}
-                  </div>
 
-                  {/* Holiday / Statutory Status Badge */}
-                  <div className="flex flex-col items-end gap-0.5 max-w-[70%]">
+                      {/* Today Badge */}
+                      {isToday && (
+                        <span className="bg-amber-400 text-amber-950 text-[10px] font-extrabold px-1 py-0.2 rounded-md shadow-xs flex items-center gap-0.5">
+                          <Star className="w-2.5 h-2.5 fill-amber-950" />
+                          <span className="hidden sm:inline">今日</span>
+                        </span>
+                      )}
+                    </div>
+
+                    {/* National Holiday mini badge */}
                     {day.isNationalHoliday && (
-                      <span className="bg-rose-600 text-white text-[9px] sm:text-[10px] font-black px-1.5 py-0.2 rounded-md shadow-xs whitespace-nowrap">
+                      <span className="bg-rose-600 text-white text-[9px] sm:text-[10px] font-black px-1.5 py-0.2 rounded-md shadow-xs whitespace-nowrap shrink-0">
                         國定假
                       </span>
                     )}
-                    {day.holidayName && (
-                      <span className="bg-rose-100 text-rose-700 border border-rose-300 text-[9px] sm:text-[10px] font-bold px-1 py-0.2 rounded-xs whitespace-nowrap truncate max-w-full">
-                        {day.holidayName}
-                      </span>
-                    )}
                   </div>
+
+                  {/* 完整顯示假期名稱 (Full Holiday Name, break-words, never truncated) */}
+                  {day.holidayName && (
+                    <div className="mt-1 w-full">
+                      <div className="w-full bg-rose-100/95 text-rose-800 border border-rose-300/80 rounded px-1 py-0.5 text-[10px] sm:text-[11px] font-extrabold leading-tight text-center sm:text-left break-words shadow-2xs">
+                        {day.holidayName}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Western or Commemorative Holiday (if no national holiday name) */}
+                  {day.westernHoliday && !day.holidayName && (
+                    <div className="mt-1 w-full">
+                      <div className="w-full text-[9px] sm:text-[10px] text-sky-800 font-bold bg-sky-50 border border-sky-200/80 rounded px-1 py-0.5 leading-tight break-words text-center sm:text-left shadow-2xs">
+                        {day.westernHoliday}
+                      </div>
+                    </div>
+                  )}
+                  {day.commemorativeName && !day.holidayName && !day.westernHoliday && (
+                    <div className="mt-1 w-full">
+                      <div className="w-full text-[9px] sm:text-[10px] text-amber-800 font-bold bg-amber-50 border border-amber-200/80 rounded px-1 py-0.5 leading-tight break-words text-center sm:text-left shadow-2xs">
+                        {day.commemorativeName}
+                      </div>
+                    </div>
+                  )}
                 </div>
 
-                {/* Middle Row: Lunar Date, 24 Solar Terms & Western Festivals */}
-                <div className="my-0.5 flex flex-col gap-0.5 min-h-[26px]">
-                  {/* Lunar Date (農曆) & Lunar Festival */}
-                  <div className="flex items-center gap-1 text-[10px] sm:text-xs flex-wrap">
-                    <span
-                      className={`font-medium truncate ${
-                        !isCurrentMonth
-                          ? 'text-slate-400'
-                          : isHolidayCell
-                          ? 'text-rose-500 font-semibold'
-                          : 'text-slate-500'
-                      }`}
-                    >
-                      {day.lunarDay === 1 ? day.lunarMonthName : day.lunarDayName}
-                    </span>
-                    {day.lunarFestival && (
-                      <span className="text-[9px] sm:text-[10px] text-amber-700 font-bold truncate">
-                        {day.lunarFestival}
-                      </span>
-                    )}
-                  </div>
+                {/* Middle Row: Lunar Date, 24 Solar Terms & Lunar Festival */}
+                <div className="my-1 flex items-center justify-between gap-1 flex-wrap">
+                  {/* Lunar Date (農曆) */}
+                  <span
+                    className={`text-[10px] sm:text-xs font-semibold ${
+                      !isCurrentMonth
+                        ? 'text-slate-400'
+                        : isHolidayCell
+                        ? 'text-rose-600 font-bold'
+                        : 'text-slate-500'
+                    }`}
+                  >
+                    {day.lunarDay === 1 ? day.lunarMonthName : day.lunarDayName}
+                  </span>
 
                   {/* 24 Solar Terms (24節氣) */}
                   {day.solarTerm && (
-                    <span className="inline-flex items-center gap-0.5 bg-emerald-600 text-white text-[9px] sm:text-[10px] font-extrabold px-1.5 py-0.2 rounded-sm w-max shadow-xs">
+                    <span className="inline-flex items-center gap-0.5 bg-emerald-600 text-white text-[9px] sm:text-[10px] font-extrabold px-1.5 py-0.2 rounded-sm shadow-xs whitespace-nowrap">
                       <Sparkles className="w-2.5 h-2.5" />
                       {day.solarTerm}
                     </span>
                   )}
 
-                  {/* Western or Commemorative Holiday */}
-                  {day.westernHoliday && !day.holidayName && (
-                    <span className="text-[9px] sm:text-[10px] text-sky-700 font-semibold truncate">
-                      {day.westernHoliday}
-                    </span>
-                  )}
-                  {day.commemorativeName && !day.holidayName && !day.westernHoliday && (
-                    <span className="text-[9px] sm:text-[10px] text-amber-700 font-semibold truncate">
-                      {day.commemorativeName}
+                  {/* Lunar Festival (if different from holidayName) */}
+                  {day.lunarFestival && day.lunarFestival !== day.holidayName && (
+                    <span className="text-[9px] sm:text-[10px] text-amber-800 font-bold break-words">
+                      {day.lunarFestival}
                     </span>
                   )}
                 </div>

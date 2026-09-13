@@ -149,9 +149,10 @@ export const PwaModal: React.FC<PwaModalProps> = ({ isOpen, onClose }) => {
                   正在生成 QR Code...
                 </div>
               )}
-              {/* Panda sticker in center of QR */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white p-1 rounded-full shadow-md border-2 border-pink-300 pointer-events-none">
-                <span className="text-xl">🐼</span>
+              {/* Chipmunk & Panda sticker in center of QR */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white px-2 py-0.5 rounded-full shadow-md border-2 border-pink-300 pointer-events-none flex items-center gap-1">
+                <span className="text-base" role="img" aria-label="花栗鼠">🐿️</span>
+                <span className="text-base" role="img" aria-label="貓熊">🐼</span>
               </div>
             </div>
 
