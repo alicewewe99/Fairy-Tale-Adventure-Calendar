@@ -73,8 +73,13 @@ export const CalendarHeader: React.FC<CalendarHeaderProps> = ({
         {/* Top brand banner with Alice Panda */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pb-3 border-b border-pink-200/50">
           <div className="flex items-center gap-3">
-            <div className="relative cursor-pointer transition-transform hover:scale-105 active:scale-95" onClick={onJumpToToday} title="點選回到今天">
-              <AlicePandaMascot size={58} className="drop-shadow-sm" />
+            <div className="relative cursor-pointer transition-transform hover:scale-105 active:scale-95 shrink-0" onClick={onJumpToToday} title="點選回到今天">
+              <img
+                src="/icon.svg"
+                alt="花栗鼠與貓熊月曆"
+                className="w-14 h-14 rounded-2xl shadow-sm border border-sky-300 object-contain bg-amber-50"
+                referrerPolicy="no-referrer"
+              />
               <span className="absolute -bottom-1 -right-1 bg-amber-400 text-amber-950 text-[10px] font-bold px-1.5 py-0.2 rounded-full border border-white shadow-xs">
                 魔法日曆
               </span>

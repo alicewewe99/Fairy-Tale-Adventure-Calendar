@@ -25,7 +25,7 @@ async function generate() {
       bottom: 51,
       left: 51,
       right: 51,
-      background: { r: 240, g: 249, b: 255, alpha: 1 }
+      background: { r: 252, g: 248, b: 238, alpha: 1 }
     })
     .png()
     .toFile(path.resolve('./public/pwa-maskable-512x512.png'));

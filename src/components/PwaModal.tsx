@@ -135,6 +135,41 @@ export const PwaModal: React.FC<PwaModalProps> = ({ isOpen, onClose }) => {
             </div>
           )}
 
+          {/* App Desktop Icon Showcase */}
+          <div className="bg-gradient-to-br from-sky-50 to-pink-50 border border-sky-200 rounded-2xl p-3 sm:p-4 flex items-center justify-between gap-3 shadow-xs">
+            <div className="flex items-center gap-3">
+              <img
+                src="/pwa-192x192.png"
+                alt="貓熊月曆 PWA 桌面圖示"
+                className="w-16 h-16 sm:w-18 sm:h-18 rounded-2xl shadow-sm border border-sky-300 shrink-0 object-contain bg-amber-50"
+                referrerPolicy="no-referrer"
+              />
+              <div className="min-w-0">
+                <div className="flex items-center gap-1.5 flex-wrap">
+                  <span className="text-[11px] font-bold px-2 py-0.5 rounded-full bg-sky-100 text-sky-700 border border-sky-200">
+                    PWA 桌面圖示
+                  </span>
+                  <span className="text-[10px] text-slate-500 font-medium">512×512 HD</span>
+                </div>
+                <h4 className="font-bold text-slate-800 text-sm sm:text-base mt-0.5 truncate">
+                  花栗鼠與貓熊・桌曆桌面圖示
+                </h4>
+                <p className="text-xs text-slate-500">
+                  安裝至手機與電腦主畫面的專屬應用程式圖案
+                </p>
+              </div>
+            </div>
+            <a
+              href="/pwa-512x512.png"
+              download="panda-calendar-pwa-icon.png"
+              className="px-3 py-2 bg-white border border-sky-300 text-sky-700 hover:bg-sky-50 rounded-xl text-xs font-bold shadow-xs shrink-0 flex items-center gap-1.5 transition-all"
+              title="下載高解析度 512x512 PWA 圖示檔案"
+            >
+              <Download className="w-3.5 h-3.5" />
+              <span className="hidden sm:inline">下載圖示</span>
+            </a>
+          </div>
+
           {/* QR Code Section */}
           <div className="bg-slate-50 border border-slate-200 rounded-3xl p-5 flex flex-col items-center text-center">
             <div className="relative p-3 bg-white rounded-2xl shadow-sm border border-slate-200">
