@@ -10,6 +10,7 @@ import {
   Download,
   Sparkles,
   HeartHandshake,
+  Laptop,
 } from 'lucide-react';
 import { AlicePandaMascot } from './AlicePandaMascot';
 import { CalendarDay } from '../types';
@@ -73,15 +74,19 @@ export const CalendarHeader: React.FC<CalendarHeaderProps> = ({
         {/* Top brand banner with Alice Panda */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pb-3 border-b border-pink-200/50">
           <div className="flex items-center gap-3">
-            <div className="relative cursor-pointer transition-transform hover:scale-105 active:scale-95 shrink-0" onClick={onJumpToToday} title="點選回到今天">
+            <div
+              className="relative cursor-pointer transition-transform hover:scale-105 active:scale-95 shrink-0"
+              onClick={onOpenPwaModal}
+              title="點選查看並下載桌面Icon圖示與安裝App"
+            >
               <img
                 src="/icon.svg"
-                alt="花栗鼠與貓熊月曆"
+                alt="貓熊捧月曆桌面圖示"
                 className="w-14 h-14 rounded-2xl shadow-sm border border-sky-300 object-contain bg-amber-50"
                 referrerPolicy="no-referrer"
               />
-              <span className="absolute -bottom-1 -right-1 bg-amber-400 text-amber-950 text-[10px] font-bold px-1.5 py-0.2 rounded-full border border-white shadow-xs">
-                魔法日曆
+              <span className="absolute -bottom-1 -right-1 bg-sky-600 text-white text-[9px] font-bold px-1.5 py-0.2 rounded-full border border-white shadow-xs">
+                桌面Icon
               </span>
             </div>
             <div>
@@ -126,15 +131,15 @@ export const CalendarHeader: React.FC<CalendarHeaderProps> = ({
               <span>同步匯出</span>
             </button>
 
-            {/* PWA QR Code and Install */}
+            {/* PWA & Desktop Icon Downloads */}
             <button
               id="btn-open-pwa"
               onClick={onOpenPwaModal}
-              className="inline-flex items-center gap-1.5 px-3 py-2 text-xs sm:text-sm font-medium rounded-xl bg-rose-50 border border-rose-200 text-rose-700 hover:bg-rose-100 active:scale-95 transition-all shadow-xs"
-              title="手機下載QR Code與桌面App安裝"
+              className="inline-flex items-center gap-1.5 px-3 py-2 text-xs sm:text-sm font-semibold rounded-xl bg-sky-50 border border-sky-300 text-sky-800 hover:bg-sky-100 active:scale-95 transition-all shadow-xs"
+              title="桌面Icon圖示下載 (.ico / .png) 與電腦/手機桌面App安裝"
             >
-              <QrCode className="w-4 h-4 text-rose-600" />
-              <span>手機QR Code</span>
+              <Laptop className="w-4 h-4 text-sky-600" />
+              <span>桌面Icon / 安裝</span>
             </button>
           </div>
         </div>
