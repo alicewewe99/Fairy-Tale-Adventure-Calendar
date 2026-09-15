@@ -11,6 +11,7 @@ import { PwaModal } from './components/PwaModal';
 import { SyncModal } from './components/SyncModal';
 import { DivinationModal } from './components/DivinationModal';
 import { AlicePandaMascot } from './components/AlicePandaMascot';
+import { DailyEnergyQuoteCard } from './components/DailyEnergyQuoteCard';
 
 const STORAGE_KEY = 'panda_calendar_markers_v1';
 
@@ -158,6 +159,13 @@ export default function App() {
         onOpenDivinationModal={() => setIsDivinationModalOpen(true)}
         copiedToday={copiedToday}
         onCopyTodayDate={handleCopyTodayDate}
+      />
+
+      {/* Today's Energy Quote Card (Rainbow Cards × Oracles Spiritual Guidance) */}
+      <DailyEnergyQuoteCard
+        todayDayObject={todayDayObject}
+        onOpenDivinationModal={() => setIsDivinationModalOpen(true)}
+        onOpenPwaModal={() => setIsPwaModalOpen(true)}
       />
 
       {/* Main Calendar Viewport (Fixed Size Layout) */}

@@ -1,6 +1,6 @@
 {
   "name": "貓熊每月月曆",
-  "description": "愛麗絲童話風可愛貓熊每月月曆，支援2026-2033年精確農曆24節氣、台灣國定假日連假、Emoji標記與手機日曆ics匯入匯出，內建彩虹卡、東港鎮海宮靈籤、浪漫天使、台灣好神卡、月相神諭卡(44張)、愛的解答之書與YES/NO直覺神諭。",
+  "description": "愛麗絲童話風可愛貓熊每月月曆，支援2026-2033年精確農曆24節氣、台灣國定假日連假、今日能量短語心靈指引、Emoji行程標記與手機日曆ics匯入匯出，內建彩虹卡、東港鎮海宮靈籤、浪漫天使、台灣好神卡與月相神諭卡。",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

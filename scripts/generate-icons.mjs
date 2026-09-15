@@ -16,6 +16,10 @@ async function generate() {
     .resize(512, 512)
     .png()
     .toFile(path.resolve('./public/pwa-512x512.png'));
+  await sharp(svgBuffer)
+    .resize(512, 512)
+    .png()
+    .toFile(path.resolve('./public/desktop-icon-512.png'));
 
   // 256x256
   await sharp(svgBuffer)
